@@ -1,0 +1,33 @@
+--1. Средняя арифметика типа
+
+DECLARE @number1 FLOAT = 10.5;
+DECLARE @number2 FLOAT = 20.7;
+DECLARE @number3 FLOAT = 30.9;
+
+SELECT AVG(value) AS среднеариф
+FROM (VALUES (@number1), (@number2), (@number3)) AS Numbers(value);
+
+--2.Хаю хай
+
+DECLARE @currentTime AS TIME = GETDATE(); -- Получаем текущее время
+
+IF @currentTime >= '06:00:00' AND @currentTime < '12:00:00'
+    PRINT 'Добрый утр';
+ELSE IF @currentTime >= '12:00:00' AND @currentTime < '18:00:00'
+    PRINT 'Доброго день';
+ELSE
+    PRINT 'Доброй вечер';
+
+--3.Люблю математику в программировании
+
+DECLARE @ticketNumber INT = 123006; -- Вот тут введи шестизначное число, чел
+
+DECLARE @firstHalf INT = @ticketNumber / 1000;
+DECLARE @secondHalf INT = @ticketNumber % 1000;
+
+IF (@firstHalf / 100 + @firstHalf / 10 % 10 + @firstHalf % 10) = 
+   (@secondHalf / 100 + @secondHalf / 10 % 10 + @secondHalf % 10)
+   PRINT 'ОГООО, ТЫ ЛАКИЧ';
+ELSE
+   PRINT 'не, ты не лакич';
+
